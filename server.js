@@ -31,8 +31,9 @@ app.engine("handlebars", exphbs({
   partialsDir: path.join(__dirname, "/views/layouts/partials")
 }));
 app.set("view engine", "handlebars");
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/techRaptorScrape";
 
-mongoose.connect("mongodb://localhost/techRaptorScrape");
+mongoose.connect(MONGODB_URI);
 
 var db = mongoose.connection;
 
